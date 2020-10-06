@@ -1,17 +1,27 @@
 import os
-import pytorch_lightning as pl
+
+from pytorch_lightning import Trainer
+
+from argparse import ArgumentParser
+
 from torchvision import transforms
 from torch.utils.data import random_split
 from datamodule import DogsDataModule
 
 from net import DogsBreedClassifier
+from net_transfer import DogsBreedClassifierTransfer
 
 from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
-def main():
+def main(args):
     
-    model = DogsBreedClassifier()
+    if args.mode == 'scratch':
+        print('Using `Scratch` model')
+        model = DogsBreedClassifier()
+    else:
+        print('Using `Transfer Learning`')
+        model = DogsBreedClassifierTransfer()
 
     paths = {
         'train': './dog_images/train/',
@@ -21,12 +31,17 @@ def main():
 
     dm = DogsDataModule(paths)
 
-    trainer = pl.Trainer(
-        max_epochs=50
-    )
+    print(f'Training for {hparams.epochs} epochs')
+
+    trainer = Trainer.from_argparse_args(args)\
     trainer.fit(model, dm)
 
     trainer.test(datamodule=dm)
 
 if __name__ == '__main__':
-    main()
+    parser = ArgumentParser()
+    parser.add_argument('--mode', default='scratch')
+
+    Trainer.add_argparse_args(parser)
+
+    main(parser.parse_args())

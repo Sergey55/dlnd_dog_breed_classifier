@@ -1,11 +1,8 @@
 import os
 
 from pytorch_lightning import Trainer
-
 from argparse import ArgumentParser
 
-from torchvision import transforms
-from torch.utils.data import random_split
 from datamodule import DogsDataModule
 
 from net import DogsBreedClassifier
@@ -31,9 +28,9 @@ def main(args):
 
     dm = DogsDataModule(paths)
 
-    print(f'Training for {hparams.epochs} epochs')
+    print(f'Training for {args.max_epochs} epochs')
 
-    trainer = Trainer.from_argparse_args(args)\
+    trainer = Trainer.from_argparse_args(args)
     trainer.fit(model, dm)
 
     trainer.test(datamodule=dm)
@@ -41,7 +38,6 @@ def main(args):
 if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('--mode', default='scratch')
-
-    Trainer.add_argparse_args(parser)
+    parser = Trainer.add_argparse_args(parser)
 
     main(parser.parse_args())

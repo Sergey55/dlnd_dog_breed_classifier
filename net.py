@@ -29,6 +29,9 @@ class DogsBreedClassifier(pl.LightningModule):
         self.fcbn1 = nn.BatchNorm1d(7 * 7 * 256)
         self.fcbn2 = nn.BatchNorm1d(512)
 
+        self.train_acc = pl.metrics.Accuracy()
+        self.val_acc = pl.metrics.Accuracy()        
+
     def forward(self, x):
         x = self.pool(self.bn1(F.elu(self.conv1(x))))
         x = self.pool(self.bn2(F.elu(self.conv2(x))))
@@ -56,24 +59,31 @@ class DogsBreedClassifier(pl.LightningModule):
         x, y = batch
         y_hat = self(x)
         loss = F.cross_entropy(y_hat, y)
-        result = pl.TrainResult(loss)
 
-        return result
+        acc = self.train_acc(y_hat, y)
+        self.log('train_acc_step', acc, on_step=True, on_epoch=False)
+
+        return {'loss': loss}
+
+    def training_epoch_end(self, outputs):
+        self.log('training_acc_epoch', self.train_acc.compute())        
 
     def validation_step(self, batch, batch_idx):
         x, y = batch
         y_hat = self(x)
         loss = F.cross_entropy(y_hat, y)
-        result = pl.EvalResult(checkpoint_on=loss)
-        result.log('val_loss', loss)
 
-        return result
+        acc = self.val_acc(y_hat, y)
+        self.log('val_acc_step', acc, on_step=True, on_epoch=False)
+
+        return {'val_loss': loss}
+
+    def valication_epoch_end(self, outputs):
+        self.log('val_acc_epoch', self.val_acc.compute())        
 
     def test_step(self, batch, batch_idx):
         x, y = batch
         y_hat = self(x)
         loss = F.cross_entropy(y_hat, y)
-        result = pl.EvalResult()
-        result.log('test_loss', loss)
 
-        return result
+        return {'test_loss': loss}

@@ -13,12 +13,6 @@ class DogsBreedClassifierEfficientNet(pl.LightningModule):
 
         self.model = EfficientNet.from_pretrained('efficientnet-b6', num_classes=133)
 
-        # for param in self.model.parameters():
-        #     param.requires_grad = False
-
-        # self.model.classifier = nn.Linear(1024, 133)
-        # self.model.classifier.requires_grad = True
-
         self.train_acc = pl.metrics.Accuracy()
         self.val_acc = pl.metrics.Accuracy()
 
@@ -59,9 +53,7 @@ class DogsBreedClassifierEfficientNet(pl.LightningModule):
         x, y = batch
         y_hat = self(x)
         loss = F.cross_entropy(y_hat, y)
-        result = pl.EvalResult()
-        result.log('test_loss', loss)
 
-        return result
+        return {'test_loss': loss}
 
 

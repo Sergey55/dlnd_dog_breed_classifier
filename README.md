@@ -30,12 +30,13 @@ The Convolutional Neural Network (CNN) project for classifying dog's breed. In t
 
 ## Files
 
-* (Classifier.ipynb)[./Classifier.ipynb]
-* (environment.yml)[./environment.yml]
-* (main.py)[./main.py]
-* (net_transfer_densenet121.py)[./net_transfer_densenet121.py]
-* (net_transfer_EfficientNet.py)[./net_transfer_EfficientNet.py]
-* (net.py)[./net.py]
+* (Classifier.ipynb)[./Classifier.ipynb] - Evaluating logic
+* (environment.yml)[./environment.yml] - Conda environment info
+* (main.py)[./main.py] - Training and evaluation using Terminal
+* (net_transfer_densenet121.py)[./net_transfer_densenet121.py] - Model implementation using transfer learning based on DenseNet121
+* (net_transfer_EfficientNet.py)[./net_transfer_EfficientNet.py] - Model implementation using transfer learning based on EfficientNetB6
+* (net.py)[./net.py] - Scratch model iplementation
+* (pkgs.txt)[./pkgs.txt] - List of required packages
 * (Training Colab.ipynb)[./Training Colab.ipynb]
 
 ## Results
@@ -44,10 +45,8 @@ Finally I've got three models which can be used for classifying canine's breed b
 
 Short sammary in table below:
 
-|---------------|---------------|---------------|-----------|-----------|
 |Model			|Accuracy		|F1 Score		|Presicio	|Recal		|
 |---------------|---------------|---------------|-----------|-----------|
 |Scratch		|29.7%			|0.259			|0.276		|0.276		|
 |DenseNet121	|79.4%			|0.796			|0.819		|0.780		|
 |EfficientNet	|68.5%			|0.663			|0.734		|0.674		|
-|---------------|---------------|---------------|-----------|-----------|

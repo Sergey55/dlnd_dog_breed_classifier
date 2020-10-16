@@ -30,14 +30,14 @@ The Convolutional Neural Network (CNN) project for classifying dog's breed. In t
 
 ## Files
 
-* (Classifier.ipynb)[./Classifier.ipynb] - Evaluating logic
-* (environment.yml)[./environment.yml] - Conda environment info
-* (main.py)[./main.py] - Training and evaluation using Terminal
-* (net_transfer_densenet121.py)[./net_transfer_densenet121.py] - Model implementation using transfer learning based on DenseNet121
-* (net_transfer_EfficientNet.py)[./net_transfer_EfficientNet.py] - Model implementation using transfer learning based on EfficientNetB6
-* (net.py)[./net.py] - Scratch model iplementation
-* (pkgs.txt)[./pkgs.txt] - List of required packages
-* (Training Colab.ipynb)[./Training Colab.ipynb]
+* [Classifier.ipynb](./Classifier.ipynb) - Evaluating logic
+* [environment.yml](./environment.yml) - Conda environment info
+* [main.py](./main.py) - Training and evaluation using Terminal
+* [net_transfer_densenet121.py](./net_transfer_densenet121.py) - Model implementation using transfer learning based on DenseNet121
+* [net_transfer_EfficientNet.py](./net_transfer_EfficientNet.py) - Model implementation using transfer learning based on EfficientNetB6
+* [net.py](./net.py) - Scratch model iplementation
+* [kgs.txt](./pkgs.txt) - List of required packages
+* [Training Colab.ipynb](./Training Colab.ipynb)
 
 ## Results
 

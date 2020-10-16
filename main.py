@@ -6,7 +6,8 @@ from argparse import ArgumentParser
 from datamodule import DogsDataModule
 
 from net import DogsBreedClassifier
-from net_transfer import DogsBreedClassifierTransfer
+from net_transfer_densenet121 import DogsBreedClassifierDenseNet
+from net_transfer_EfficientNet import DogsBreedClassifierEfficientNet
 
 from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
@@ -16,9 +17,12 @@ def main(args):
     if args.mode == 'scratch':
         print('Using `Scratch` model')
         model = DogsBreedClassifier()
+    elif args.mode == 'densenet':
+        print('Using `DenseNet121` network')
+        model = DogsBreedClassifierDenseNet()
     else:
-        print('Using `Transfer Learning`')
-        model = DogsBreedClassifierTransfer()
+        print('Using `EfficientNet` network')
+        model = DogsBreedClassifierEfficientNet()
 
     paths = {
         'train': './dog_images/train/',

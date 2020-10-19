@@ -14,7 +14,34 @@ The Convolutional Neural Network (CNN) project for classifying dog's breed. In t
 
 ## Data
 
-#TODO:
+This project uses the [Dog dataset](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip). It contains photos of 133 different dog breeds.
+
+Archive with photos supposed to be downloaded and extracted to the `dog_images` folder. The `dog_images` folder should contain three subfolders with train, validation, and test datasets accordingly. Each subfolder should contain 133 subdirectories, each corresponding to a different dog breed.
+
+```
+project_home
+|
+├── dog_images
+|   |
+|   ├── train
+|   |   ├── 001.Affenpinscher
+|   |   ├── 002.Afghan_hound
+|   |   ├── ...
+|   |   └── 133.Yorkshire_terrier
+|   |
+|   ├── test
+|   |   ├── 001.Affenpinscher
+|   |   ├── 002.Afghan_hound
+|   |   ├── ...
+|   |   └── 133.Yorkshire_terrier
+|   |
+|   ├── valid
+|   |   ├── 001.Affenpinscher
+|   |   ├── 002.Afghan_hound
+|   |   ├── ...
+|   |   └── 133.Yorkshire_terrier
+...
+```
 
 ## Network
 
@@ -32,7 +59,8 @@ The Convolutional Neural Network (CNN) project for classifying dog's breed. In t
 
 * [Classifier.ipynb](./Classifier.ipynb) - Evaluating logic
 * [environment.yml](./environment.yml) - Conda environment info
-* [main.py](./main.py) - Training and evaluation using Terminal
+* [train.py](./train.py) - Training on local machine
+* [test.py](./test.py) - Tesing on local machine
 * [net_transfer_densenet121.py](./net_transfer_densenet121.py) - Model implementation using transfer learning based on DenseNet121
 * [net_transfer_EfficientNet.py](./net_transfer_EfficientNet.py) - Model implementation using transfer learning based on EfficientNetB6
 * [net.py](./net.py) - Scratch model iplementation

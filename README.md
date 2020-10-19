@@ -14,7 +14,7 @@ The Convolutional Neural Network (CNN) project for classifying dog's breed. In t
 
 ## Data
 
-This project uses the [Dog dataset](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip). It contains photos of 133 different dog breeds.
+This project uses the [Dogs dataset](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip). It contains photos of 133 different dog breeds.
 
 Archive with photos supposed to be downloaded and extracted to the `dog_images` folder. The `dog_images` folder should contain three subfolders with train, validation, and test datasets accordingly. Each subfolder should contain 133 subdirectories, each corresponding to a different dog breed.
 

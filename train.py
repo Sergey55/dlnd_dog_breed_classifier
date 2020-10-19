@@ -37,11 +37,11 @@ def main(args):
     trainer = Trainer.from_argparse_args(args)
     trainer.fit(model, dm)
 
-    trainer.test(datamodule=dm)
-
 if __name__ == '__main__':
     parser = ArgumentParser()
-    parser.add_argument('--mode', default='scratch')
+
+    parser.add_argument('--mode', default='scratch', help='Model type: scratch, densenet or efficientnet')
+
     parser = Trainer.add_argparse_args(parser)
 
     main(parser.parse_args())

@@ -65,7 +65,7 @@ project_home
 * [net_transfer_EfficientNet.py](./net_transfer_EfficientNet.py) - Model implementation using transfer learning based on EfficientNetB6
 * [net.py](./net.py) - Scratch model iplementation
 * [kgs.txt](./pkgs.txt) - List of required packages
-* [Training Colab.ipynb](./Training Colab.ipynb)
+* [Training_Colab.ipynb](./Training_Colab.ipynb)
 
 ## Results
 

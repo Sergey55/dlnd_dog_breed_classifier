@@ -57,7 +57,7 @@ All three neural networks trained on Google Colab using [trainig_colab.ipynb](./
 python train.py --mode densenet
 ```
 
-Using [PyTorch Lightning](https://pytorch-lightning.readthedocs.io/en/stable/) makes the process way easier. Most of the training parameters can be passed as a key right in terminal. Suppose we want to train our model on GPU during 20 epochs and save logs to a particular directory. We can do it next way:
+Using [PyTorch Lightning](https://pytorch-lightning.readthedocs.io/en/stable/){:target="_blank"} makes the process way easier. Most of the training parameters can be passed as a key right in terminal. Suppose we want to train our model on GPU during 20 epochs and save logs to a particular directory. We can do it next way:
 
 ```
 python train.py --mode densenet --gpus 1 --max_epochs 20 --default_root_dir './logs/densenet/`

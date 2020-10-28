@@ -63,7 +63,7 @@ Using [PyTorch Lightning](https://pytorch-lightning.readthedocs.io/en/stable/) m
 python train.py --mode densenet --gpus 1 --max_epochs 20 --default_root_dir './logs/densenet/`
 ```
 
-All set of parameter can be obtained using the next command:
+All set of parameters can be obtained using the next command:
 
 ```
 python train.py -h
@@ -98,7 +98,7 @@ Finally I've got three models which can be used for classifying canine's breed b
 
 Short sammary in table below:
 
-|Model			|Accuracy		|F1 Score		|Presicio	|Recal		|
+|Model			|Accuracy		|F1 Score		|Presicion	|Recal		|
 |---------------|---------------|---------------|-----------|-----------|
 |Scratch		|29.7%			|0.259			|0.276		|0.276		|
 |DenseNet121	|79.4%			|0.796			|0.819		|0.780		|
